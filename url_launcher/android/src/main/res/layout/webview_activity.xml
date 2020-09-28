@@ -5,7 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:orientation="vertical"
     android:background="#FFFFFF">
 
@@ -20,14 +19,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:elevation="0dp"
-            android:text="Done"
-            android:textSize="17dp"
+            android:text="@string/done_button"
+            android:textSize="17sp"
             android:textColor="#0CA1D1"
             android:textAllCaps="false"
             android:background="#0000"
-            android:layout_marginLeft="24dp"
-            style="?android:attr/borderlessButtonStyle" />
+            android:padding="12dp"
+            android:layout_marginLeft="12dp"
+            style="?android:attr/borderlessButtonStyle"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -35,9 +34,9 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:textStyle="bold"
-            android:textSize="17dp"
+            android:textSize="17sp"
             android:textColor="#000000"
-            android:text="metime.com"/>
+            android:text="@string/metime_com"/>
 
     </RelativeLayout>
 

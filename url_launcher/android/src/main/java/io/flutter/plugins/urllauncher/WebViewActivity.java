@@ -89,7 +89,7 @@ public class WebViewActivity extends Activity {
               finish();
           }
       });
-    
+
     final Map<String, String> headersMap = extractHeaders(headersBundle);
     webview.loadUrl(url, headersMap);
 
