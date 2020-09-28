@@ -1,0 +1,2 @@
+int id webview 0x7f0b0001
+int layout webview_activity 0x7f0e0001
