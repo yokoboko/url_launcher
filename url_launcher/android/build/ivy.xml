@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
-  <info organisation="io.flutter.plugins.urllauncher" module="url_launcher" revision="1.0" status="integration" publication="20200925181220"/>
+  <info organisation="io.flutter.plugins.urllauncher" module="url_launcher" revision="1.0" status="integration" publication="20200930124455"/>
   <configurations>
     <conf name="_internal_aapt2_binary" visibility="private" transitive="false"/>
     <conf name="androidApis" visibility="public"/>
@@ -111,7 +111,46 @@
     </dependency>
     <dependency org="androidx.annotation" name="annotation" rev="1.0.0" conf="compileOnly-&gt;default"/>
     <dependency org="io.flutter" name="flutter_embedding_release" rev="1.0.0-d1bc06f032f9d6c148ea6b96b48261d6f545004f" transitive="false" conf="compileOnly-&gt;default"/>
+    <dependency org="com.android.support" name="support-compat" rev="28.0.0" conf="implementation-&gt;default"/>
+    <dependency org="androidx.appcompat" name="appcompat" rev="1.0.2" conf="implementation-&gt;default"/>
     <dependency org="com.android.tools.lint" name="lint-gradle" rev="26.4.2" conf="lintClassPath-&gt;default"/>
+    <dependency org="com.android.support" name="support-compat" rev="28.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.android.support" name="support-annotations" rev="28.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.android.support" name="collections" rev="28.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="android.arch.lifecycle" name="runtime" rev="1.1.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="android.arch.lifecycle" name="common" rev="1.1.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="android.arch.core" name="common" rev="1.1.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.android.support" name="versionedparcelable" rev="28.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.appcompat" name="appcompat" rev="1.0.2" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.annotation" name="annotation" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.core" name="core" rev="1.0.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.collection" name="collection" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.lifecycle" name="lifecycle-runtime" rev="2.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.lifecycle" name="lifecycle-common" rev="2.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.arch.core" name="core-common" rev="2.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.versionedparcelable" name="versionedparcelable" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.cursoradapter" name="cursoradapter" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.legacy" name="legacy-support-core-utils" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.documentfile" name="documentfile" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.loader" name="loader" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.lifecycle" name="lifecycle-livedata" rev="2.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.arch.core" name="core-runtime" rev="2.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.lifecycle" name="lifecycle-livedata-core" rev="2.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.lifecycle" name="lifecycle-viewmodel" rev="2.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.localbroadcastmanager" name="localbroadcastmanager" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.print" name="print" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.fragment" name="fragment" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.legacy" name="legacy-support-core-ui" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.customview" name="customview" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.viewpager" name="viewpager" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.coordinatorlayout" name="coordinatorlayout" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.drawerlayout" name="drawerlayout" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.slidingpanelayout" name="slidingpanelayout" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.interpolator" name="interpolator" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.swiperefreshlayout" name="swiperefreshlayout" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.asynclayoutinflater" name="asynclayoutinflater" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.vectordrawable" name="vectordrawable" rev="1.0.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.vectordrawable" name="vectordrawable-animated" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="junit" name="junit" rev="4.12" conf="testImplementation-&gt;default"/>
     <dependency org="org.mockito" name="mockito-core" rev="1.10.19" conf="testImplementation-&gt;default"/>
     <dependency org="androidx.test" name="core" rev="1.0.0" conf="testImplementation-&gt;default"/>

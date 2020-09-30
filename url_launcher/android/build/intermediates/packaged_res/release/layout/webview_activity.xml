@@ -5,21 +5,43 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#FFFFFF">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="metime.com"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:id="@+id/me_time_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#F1F1F1">
 
+        <Button
+            android:id="@+id/done_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/done_button"
+            android:textSize="17sp"
+            android:textColor="#0CA1D1"
+            android:textAllCaps="false"
+            android:background="#0000"
+            android:padding="12dp"
+            android:layout_marginLeft="12dp"
+            style="?android:attr/borderlessButtonStyle"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:textColor="#000000"
+            android:text="@string/metime_com"/>
+
+    </RelativeLayout>
 
     <WebView
-        android:id="@+id/webview"
+        android:id="@+id/web_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

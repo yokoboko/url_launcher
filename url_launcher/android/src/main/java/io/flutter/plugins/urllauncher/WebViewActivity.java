@@ -1,12 +1,20 @@
 package io.flutter.plugins.urllauncher;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
-import android.os.Bundle;
 import android.provider.Browser;
 import android.view.View;
 import android.view.KeyEvent;
@@ -18,6 +26,9 @@ import android.webkit.WebViewClient;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.PermissionRequest;
+
+import androidx.annotation.NonNull;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -76,12 +87,10 @@ public class WebViewActivity extends Activity {
     final String url = intent.getStringExtra(URL_EXTRA);
     final boolean enableJavaScript = intent.getBooleanExtra(ENABLE_JS_EXTRA, false);
     final boolean enableDomStorage = intent.getBooleanExtra(ENABLE_DOM_EXTRA, false);
-    final Bundle headersBundle = intent.getBundleExtra(Browser.EXTRA_HEADERS);
 
     webview = findViewById(R.id.web_view);
 
     RelativeLayout bar = findViewById(R.id.me_time_bar);
-    bar.setVisibility(url.contains("whereby.com") ? View.VISIBLE : View.GONE);
     Button doneButton = findViewById(R.id.done_btn);
     doneButton.setOnClickListener(new View.OnClickListener() {
           @Override
@@ -89,9 +98,6 @@ public class WebViewActivity extends Activity {
               finish();
           }
       });
-
-    final Map<String, String> headersMap = extractHeaders(headersBundle);
-    webview.loadUrl(url, headersMap);
 
     webview.getSettings().setJavaScriptEnabled(enableJavaScript);
     webview.getSettings().setDomStorageEnabled(enableDomStorage);
@@ -104,6 +110,7 @@ public class WebViewActivity extends Activity {
           @Override
           public void onPermissionRequest(final PermissionRequest request) {
               runOnUiThread(new Runnable() {
+                  @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
                   @Override
                   public void run() {
                           request.grant(request.getResources());
@@ -115,6 +122,37 @@ public class WebViewActivity extends Activity {
 
     // Register receiver that may finish this Activity.
     registerReceiver(broadcastReceiver, closeIntentFilter);
+
+    // Ask for permissions
+    if (url.contains("whereby.com")) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED ) {
+            loadUrl();
+        } else {
+            String[] permissions = {Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO};
+            ActivityCompat.requestPermissions(this, permissions, 303);
+        }
+    } else {
+        bar.setVisibility(View.GONE);
+        loadUrl();
+    }
+  }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 303) {
+            loadUrl();
+        }
+    }
+
+  private void loadUrl() {
+
+      final Intent intent = getIntent();
+      final String url = intent.getStringExtra(URL_EXTRA);
+      final Bundle headersBundle = intent.getBundleExtra(Browser.EXTRA_HEADERS);
+
+      final Map<String, String> headersMap = extractHeaders(headersBundle);
+      webview.loadUrl(url, headersMap);
   }
 
   private Map<String, String> extractHeaders(Bundle headersBundle) {
