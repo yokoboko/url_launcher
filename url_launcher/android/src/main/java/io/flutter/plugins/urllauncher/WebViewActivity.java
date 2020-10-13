@@ -124,7 +124,7 @@ public class WebViewActivity extends Activity {
     registerReceiver(broadcastReceiver, closeIntentFilter);
 
     // Ask for permissions
-    if (url.contains("videoCall=")) {
+    if (url.contains("videoCall=") || url.contains("whereby.com")) {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED ) {
             loadUrl();
         } else {
