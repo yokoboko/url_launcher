@@ -168,9 +168,17 @@ public class WebViewActivity extends Activity {
   protected void onDestroy() {
     super.onDestroy();
     unregisterReceiver(broadcastReceiver);
+    webview.destroy();
+    webview = null;
   }
 
-  @Override
+//    @Override
+//    public void onBackPressed() {
+//        moveTaskToBack(true);
+//    }
+
+
+    @Override
   public boolean onKeyDown(int keyCode, KeyEvent event) {
     if (keyCode == KeyEvent.KEYCODE_BACK && webview.canGoBack()) {
       webview.goBack();
